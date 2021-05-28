@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JSON API</title>
+</head>
+
+<body>
+
+    <button onclick="_getPost5()">Post 5</button>
+    <button onclick="_getAlbum7()">Album 7</button>
+    <button onclick="_getUser9()">User 9</button>
+
+    <div id="Post5Details"></div>
+    <div id="Album7Details"></div>
+    <div id="User9Details"></div>
+
+    <script>
+
+        function _getPost5() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    Post5Details.innerHTML = `<h1>Post 5</h1> Post 5 body is: ${JSON.parse(this.responseText).body}`;
+                }
+            }
+
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts/5", true);
+            xhttp.send();
+        }
+
+        function _getAlbum7() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    Album7Details.innerHTML = `<h1>Album 7</h1> Album 7 title is: ${JSON.parse(this.responseText).title}`;
+                }
+            }
+
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/albums/7", true);
+            xhttp.send();
+        }
+
+
+        function _getUser9() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    User9Details.innerHTML = `<h1>User 9</h1> User 9 name is: ${JSON.parse(this.responseText).name}`;
+                }
+            }
+
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/users/9", true);
+            xhttp.send();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
